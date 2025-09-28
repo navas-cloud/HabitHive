@@ -1,7 +1,5 @@
 # HabitHive
 
-Habit Tracker:
-
 A web-based habit tracking application to help users build consistency, stay motivated, and visualize their progress.
 
 Features:
