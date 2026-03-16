@@ -8,11 +8,13 @@
 
 > A web-based habit tracking application that recommends habits based on BMI and age, tracks daily completions, and visualizes progress through interactive charts.
 
+> 🤝 Built as a team project with [Priyanka R P](https://github.com/PriyankaRS17)
+
 ---
 
 ## Problem Statement
 
-Most habit trackers treat all users the same. HabitHive takes a different approach — it uses the user's **weight, height, and age** to calculate BMI and recommend relevant habits automatically. Combined with daily completion tracking and visual stats, it gives users a personalized, data-driven habit-building experience.
+Most habit trackers treat all users the same. HabitHive takes a different approach — it uses the user's weight, height, and age to calculate BMI and recommend relevant habits automatically. Combined with daily completion tracking and visual stats, it gives users a personalized, data-driven habit-building experience.
 
 ---
 
@@ -26,7 +28,7 @@ Most habit trackers treat all users the same. HabitHive takes a different approa
 | Habit Configuration | Set frequency (days/week), duration (hours), and preferred time (Morning / Afternoon / Night) |
 | Daily Completion Tracking | Mark habits complete per day — duplicate completions blocked server-side |
 | Delete Habits | Remove habits and all associated completion records |
-| Hive Stats Dashboard | Visual charts — daily completion trend, remaining habit targets per habit, preferred time distribution |
+| Hive Stats Dashboard | Visual charts — daily completion trend, remaining habit targets, preferred time distribution |
 | Blog Section | 3 built-in articles on habit building, morning routines, and mindfulness with related article suggestions |
 | Health Profile | User stores weight, height, age, gender — persisted on User model, updates on every habit form submit |
 
@@ -49,17 +51,9 @@ Most habit trackers treat all users the same. HabitHive takes a different approa
 
 ## Screenshots
 
-  Dashboard
-<img width="1898" height="845" alt="image" src="https://github.com/user-attachments/assets/158e0794-7244-47f9-b8a1-f51b809ccaae" />
+> Add screenshots here using the GitHub Issues trick — drag images into a new issue comment, copy the links, paste here.
 
-  Login
-<img width="1916" height="880" alt="image" src="https://github.com/user-attachments/assets/ef0ab300-881b-47c0-9b32-c90cabfd76ca" />
-
-  Habits
-<img width="1891" height="875" alt="image" src="https://github.com/user-attachments/assets/22a7c755-3569-4a80-9ad8-c76ac3c8c7a9" />
-
-  Hive Stats
-<img width="1896" height="881" alt="image" src="https://github.com/user-attachments/assets/93bfc5a4-a02c-4701-bb6e-660bfec07717" />
+---
 
 ## Project Structure
 
@@ -72,8 +66,8 @@ Habit Tracker/
 │
 ├── templates/
 │   ├── dashboard.html      # Home page — articles feed
-│   ├── login.html          # Login page
-│   ├── register.html       # Registration page
+│   ├── login.html
+│   ├── register.html
 │   ├── habit.html          # Add habits + BMI recommendations + habit list
 │   ├── hive_stats.html     # Charts — completion trend, targets, time distribution
 │   └── blog_detail.html    # Individual blog article with related articles
@@ -187,8 +181,8 @@ ODBC Driver 18 for SQL Server
 
 ```bash
 # Clone the repo
-git clone https://github.com/navas-cloud/habithive.git
-cd habithive/Habit Tracker
+git clone https://github.com/PriyankaRS17/habithive.git
+cd habithive/Habit\ Tracker
 
 # Install dependencies
 pip install -r requirements.txt
@@ -211,17 +205,17 @@ app.config['SQLALCHEMY_DATABASE_URI'] = (
 python app.py
 ```
 
-Open **http://127.0.0.1:5000** in your browser. The database tables are auto-created on first run via `db.create_all()`.
+Open **http://127.0.0.1:5000** — database tables are auto-created on first run via `db.create_all()`.
 
 ---
 
 ## Key Engineering Decisions
 
-- **Health profile stored on the User model** — weight, height, age, gender are first-class fields on `User`, not a separate table; habit recommendations compute directly from `current_user` attributes with no extra join
-- **Server-side duplicate completion guard** — `/complete-habit` checks `HabitCompletion` for an existing entry with today's date before inserting; prevents double-counting without any client-side state
-- **JSON API for complete and delete** — habit completion and deletion use `jsonify` responses consumed by JavaScript, keeping the habit page interactive without full page reloads
-- **Remaining target calculation scoped to duration window** — stats correctly compute remaining completions only within the habit's active window (`date_created` to `date_created + duration days`), not lifetime totals
-- **BMI + age recommendation as additive lists** — both BMI-based and age-based recommendations are computed independently and merged, so a Senior with Overweight BMI gets recommendations from both categories
+- **Health profile on the User model** — weight, height, age, gender stored directly on `User`; BMI recommendations compute from `current_user` with no extra join
+- **Server-side duplicate completion guard** — `/complete-habit` checks for an existing `HabitCompletion` with today's date before inserting; prevents double-counting without any client-side state
+- **JSON API for complete and delete** — both actions use `jsonify` responses consumed by JavaScript, keeping the habit page interactive without full page reloads
+- **Remaining target scoped to duration window** — stats compute remaining completions only within the habit's active window (`date_created` to `date_created + duration days`), not lifetime totals
+- **BMI + age as additive recommendation lists** — both sets computed independently and merged; a Senior with Overweight BMI gets recommendations from both categories
 
 ---
 
@@ -229,13 +223,15 @@ Open **http://127.0.0.1:5000** in your browser. The database tables are auto-cre
 
 - [ ] Migrate from SQL Server to PostgreSQL for easier cross-platform deployment
 - [ ] Add streak tracking — count consecutive days a habit was completed
+- [ ] Add habit edit functionality (currently add and delete only)
 - [ ] Write pytest unit tests for BMI logic and completion duplicate guard
 - [ ] Dockerize with `docker-compose` for portable setup
 - [ ] Deploy to AWS / Render
 
 ---
 
-## Author
+## Authors
 
-**MohammedNavas A**
-[LinkedIn](https://linkedin.com/in/mohammed-navas-a-) · [GitHub](https://github.com/navas-cloud) · navash.a.v012@gmail.com
+**Mohammed Navas A** · [LinkedIn](https://linkedin.com/in/mohammed-navas-a-) · [GitHub](https://github.com/navas-cloud) · navash.a.v012@gmail.com
+
+**Priyanka R P** · [LinkedIn](https://www.linkedin.com/in/priyanka-rp) · [GitHub](https://github.com/PriyankaRS17) · priyankapremnath17@gmail.com
