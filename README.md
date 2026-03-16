@@ -51,7 +51,17 @@ Most habit trackers treat all users the same. HabitHive takes a different approa
 
 ## Screenshots
 
-> Add screenshots here using the GitHub Issues trick — drag images into a new issue comment, copy the links, paste here.
+  Dashboard
+<img width="1898" height="845" alt="image" src="https://github.com/user-attachments/assets/158e0794-7244-47f9-b8a1-f51b809ccaae" />
+
+  Login
+<img width="1916" height="880" alt="image" src="https://github.com/user-attachments/assets/ef0ab300-881b-47c0-9b32-c90cabfd76ca" />
+
+  Habits
+<img width="1891" height="875" alt="image" src="https://github.com/user-attachments/assets/22a7c755-3569-4a80-9ad8-c76ac3c8c7a9" />
+
+  Hive Stats
+<img width="1896" height="881" alt="image" src="https://github.com/user-attachments/assets/93bfc5a4-a02c-4701-bb6e-660bfec07717" />
 
 ---
 
