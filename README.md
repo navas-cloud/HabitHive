@@ -242,6 +242,6 @@ Open **http://127.0.0.1:5000** — database tables are auto-created on first run
 
 ## Authors
 
-**Mohammed Navas A** · [LinkedIn](https://linkedin.com/in/mohammed-navas-a-) · [GitHub](https://github.com/navas-cloud) · navash.a.v012@gmail.com
+**MohammedNavas A** · [LinkedIn](https://linkedin.com/in/mohammed-navas-a-) · [GitHub](https://github.com/navas-cloud) · navash.a.v012@gmail.com
 
 **Priyanka R P** · [LinkedIn](https://www.linkedin.com/in/priyanka-rp) · [GitHub](https://github.com/PriyankaRS17) · priyankapremnath17@gmail.com
